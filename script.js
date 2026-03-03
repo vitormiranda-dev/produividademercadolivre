@@ -133,7 +133,7 @@ function atualizarResumo() {
 
 function gerarCores() {
     return Object.values(producoes).map(valor => {
-        return valor < 719 ? "red" : "green";
+        return valor < 719 ? "red" : "blue";
     });
 }
 
