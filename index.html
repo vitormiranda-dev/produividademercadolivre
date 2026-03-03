@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Painel de Produtividade</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Painel de Produtividade</h2>
+
+<div class="card">
+    <h3>Meta Mensal</h3>
+    <input type="number" id="meta" placeholder="Digite a meta">
+    <button onclick="salvarMeta()">Salvar Meta</button>
+    <p id="metaAtual"></p>
+</div>
+
+<button onclick="limparGrafico()">Limpar Produção do Mês</button>
+
+<div class="card">
+    <h3>Excluir Produção de um Dia</h3>
+    <input type="date" id="dataExcluir">
+    <button onclick="excluirDia()">Excluir Dia</button>
+</div>
+
+<div class="card">
+    <h3>Adicionar Produção do Dia</h3>
+    <input type="date" id="data">
+    <input type="number" id="producao" placeholder="Produção">
+    <button onclick="adicionarProducao()">Adicionar</button>
+</div>
+
+<div class="card">
+    <h3>Resumo</h3>
+    <p>Total do mês: <span id="totalMes" class="bold">0</span></p>
+    <p>Percentual da meta: <span id="percentual">0%</span></p>
+</div>
+
+<div class="card">
+    <h3>Selecionar Mês</h3>
+    <input type="month" id="mesSelecionado">
+    <button onclick="trocarMes()">Carregar Mês</button>
+</div>
+
+<div class="card grafico-container">
+    <canvas id="grafico"></canvas>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
