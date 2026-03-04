@@ -133,7 +133,7 @@ function atualizarResumo() {
 
 function gerarCores() {
     return Object.values(producoes).map(valor => {
-        return valor < 719 ? "red" : "blue";
+        return valor < 719 ? "red" : "green";
     });
 }
 
@@ -153,22 +153,37 @@ let grafico = new Chart(ctx, {
         }]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            datalabels: {
-                anchor: 'end',
-                align: 'top',
-                font: { weight: 'bold' },
-                formatter: function(value) {
-                    return value;
-                }
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        x: {
+            ticks: {
+                maxRotation: 45,
+                minRotation: 45
             }
         },
-        scales: {
-            y: { beginAtZero: true }
+        y: {
+            beginAtZero: true
+        }
+    },
+    plugins: {
+        zoom: {
+            pan: {
+                enabled: true,
+                mode: 'x'
+            },
+            zoom: {
+                wheel: {
+                    enabled: true
+                },
+                pinch: {
+                    enabled: true
+                },
+                mode: 'x'
+            }
         }
     }
+}
 });
 
 function atualizarGrafico() {
