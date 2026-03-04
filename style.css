@@ -36,30 +36,29 @@ button:hover {
     height: 400px;
 }
 
-.grafico-scroll {
-    overflow-x: auto;
-}
-
-.grafico-inner {
-    height: 55vh;
-}
-
-/* Apenas no celular */
-@media (max-width: 768px) {
-    .grafico-inner {
-        min-width: 1200px;  /* deixa panorâmico */
-        height: 75vh;       /* maior altura */
-    }
-}
+/* ===== GRÁFICO ===== */
 
 .grafico-scroll {
     overflow-x: auto;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* melhora scroll no celular */
 }
 
-/* deixa a barra mais visível */
+.grafico-inner {
+    min-width: 1200px;  /* força largura maior SEMPRE */
+    height: 55vh;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 768px) {
+    .grafico-inner {
+        height: 40vh;
+    }
+}
+
+/* ===== SCROLL VISÍVEL ===== */
 .grafico-scroll::-webkit-scrollbar {
-    height: 10px;
+    height: 8px;
 }
 
 .grafico-scroll::-webkit-scrollbar-thumb {
