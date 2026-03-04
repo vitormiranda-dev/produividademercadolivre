@@ -1,8 +1,13 @@
+/* ===== CONFIGURAÇÃO GERAL ===== */
+
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: #f4f6f9;
     padding: 20px;
+    margin: 0;
 }
+
+/* ===== CARDS ===== */
 
 .card {
     background: white;
@@ -11,6 +16,8 @@ body {
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
+/* ===== INPUTS E BOTÕES ===== */
 
 input, button {
     padding: 8px;
@@ -22,6 +29,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -32,34 +40,45 @@ button:hover {
     font-weight: bold;
 }
 
-.grafico-container {
-    height: 400px;
-}
-
-.grafico-scroll {
-    overflow-x: auto;
-}
-
-.grafico-inner {
-    height: 55vh;
-}
-
-/* Apenas no celular */
-@media (max-width: 768px) {
-    .grafico-inner {
-        min-width: 1200px;  /* deixa panorâmico */
-        height: 20vh;       /* maior altura */
-    }
-}
+/* ===== GRÁFICO ===== */
 
 .grafico-scroll {
     overflow-x: auto;
     overflow-y: hidden;
 }
 
-/* deixa a barra mais visível */
+.grafico-inner {
+    min-width: 1200px; /* largura panorâmica */
+    height: 55vh;      /* altura normal PC */
+}
+
+/* ===== CELULAR ===== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .grafico-inner {
+        min-width: 1200px;  /* continua panorâmico */
+        height: 40vh;       /* altura menor no celular */
+    }
+
+    /* barra de rolagem mais fina */
+    .grafico-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+}
+
+/* ===== SCROLL PERSONALIZADO ===== */
+
 .grafico-scroll::-webkit-scrollbar {
-    height: 10px;
+    height: 8px;
 }
 
 .grafico-scroll::-webkit-scrollbar-thumb {
@@ -69,9 +88,4 @@ button:hover {
 
 .grafico-scroll::-webkit-scrollbar-track {
     background: #e0e0e0;
-}
-
-.grafico-inner {
-    min-width: 1200px; /* força largura maior */
-    height: 65vh;
 }
