@@ -1,15 +1,19 @@
 body {
     font-family: Arial;
-    background: #f4f6f9;
+    background-size: cover;
+    background-attachment: fixed;
     padding: 20px;
+    margin: 0;
 }
 
 .card {
     background: white;
+    background-size: cover; 
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    
 }
 
 input, button {
@@ -34,7 +38,9 @@ button:hover {
 
 .grafico-container {
     height: 400px;
+    background-color: aliceblue;
 }
+
 
 /* ===== GRÁFICO ===== */
 
@@ -70,4 +76,3 @@ button:hover {
 .grafico-scroll::-webkit-scrollbar-track {
     background: #e0e0e0;
 }
-
