@@ -133,7 +133,7 @@ function atualizarResumo() {
 
 function gerarCores() {
     return Object.values(producoes).map(valor => {
-        return valor < 719 ? "red" : "green";
+        return valor < 719 ? "red" : "blue";
     });
 }
 
@@ -146,46 +146,81 @@ let grafico = new Chart(ctx, {
         datasets: [{
             label: 'Produção por Dia',
             data: [],
-            backgroundColor: [],
-            barPercentage: 0.6,
-            categoryPercentage: 0.5,
-            maxBarThickness: 40
+            backgroundColor: '#3f51b5',
+            borderRadius: 4,
+            barThickness: 28
         }]
     },
     options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-        x: {
-            ticks: {
-                maxRotation: 45,
-                minRotation: 45
+        responsive: true,
+        maintainAspectRatio: false,
+
+        scales: {
+            x: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    autoSkip: false,
+                    font: {
+                        size: 12,
+                        weight: 'bold'
+                    }
+                }
+            },
+            y: {
+                beginAtZero: true,
+                grid: {
+                    color: '#e0e0e0'
+                },
+                ticks: {
+                    font: {
+                        size: 12
+                    }
+                }
             }
         },
-        y: {
-            beginAtZero: true
+
+       plugins: {
+    legend: {
+        labels: {
+            font: {
+                size: 14,
+                weight: 'bold'
+            }
         }
     },
-    plugins: {
+
+    datalabels: {
+        anchor: 'end',
+        align: 'top',
+        offset: 4,
+        color: '#000',
+        font: {
+            weight: 'bold',
+            size: 12
+        }
+    },
+
+    zoom: {
+        pan: {
+            enabled: true,
+            mode: 'x'
+        },
         zoom: {
-            pan: {
-                enabled: true,
-                mode: 'x'
+            wheel: {
+                enabled: true
             },
-            zoom: {
-                wheel: {
-                    enabled: true
-                },
-                pinch: {
-                    enabled: true
-                },
-                mode: 'x'
-            }
+            pinch: {
+                enabled: true
+            },
+            mode: 'x'
         }
     }
 }
+    }
+    
 });
-
 function atualizarGrafico() {
 
     let labelsOriginais = Object.keys(producoes);
