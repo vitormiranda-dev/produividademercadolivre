@@ -48,7 +48,7 @@ button:hover {
 @media (max-width: 768px) {
     .grafico-inner {
         min-width: 1200px;  /* deixa panorâmico */
-        height: 75vh;       /* maior altura */
+        height: 40vh;       /* maior altura */
     }
 }
 
