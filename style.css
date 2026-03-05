@@ -42,21 +42,17 @@ button:hover {
     background-color: aliceblue;
 }
 
-
-/* ===== GRÁFICO ===== */
-
 .grafico-scroll {
     overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* melhora scroll no celular */
+    -webkit-overflow-scrolling: touch; 
 }
 
 .grafico-inner {
-    min-width: 1200px;  /* força largura maior SEMPRE */
+    min-width: 1200px;  
     height: 55vh;
 }
 
-/* ===== CELULAR ===== */
 @media (max-width: 768px) {
     .grafico-inner {
         height: 40vh;
@@ -64,7 +60,6 @@ button:hover {
     }
 }
 
-/* ===== SCROLL VISÍVEL ===== */
 .grafico-scroll::-webkit-scrollbar {
     height: 8px;
 }
