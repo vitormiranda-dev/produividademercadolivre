@@ -221,17 +221,30 @@ let grafico = new Chart(ctx, {
     }
     
 });
-function atualizarGrafico() {
+ function atualizarGrafico() {
 
-    let labelsOriginais = Object.keys(producoes);
-    let labelsSomenteDia = labelsOriginais.map(data => data.split("/")[0]);
+        let labelsOriginais = Object.keys(producoes);
 
-    grafico.data.labels = labelsSomenteDia;
-    grafico.data.datasets[0].data = Object.values(producoes);
-    grafico.data.datasets[0].backgroundColor = gerarCores();
+        // ordenar pelas datas
+        labelsOriginais.sort((a, b) => {
 
-    grafico.update();
+            let pa = a.split("/");
+            let pb = b.split("/");
+
+            let dataA = new Date(pa[2], pa[1]-1, pa[0]);
+            let dataB = new Date(pb[2], pb[1]-1, pb[0]);
+
+            return dataA - dataB;
+
+        });
+
+        let labelsSomenteDia = labelsOriginais.map(data => data.split("/")[0]);
+
+        let valores = labelsOriginais.map(data => producoes[data]);
+
+        grafico.data.labels = labelsSomenteDia;
+        grafico.data.datasets[0].data = valores;
+        grafico.data.datasets[0].backgroundColor = valores.map(v => v < 719 ? "red" : "blue");
+
+        grafico.update();
 }
-
-atualizarGrafico();
-atualizarResumo();
